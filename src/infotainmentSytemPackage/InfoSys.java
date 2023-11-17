@@ -71,7 +71,7 @@ public class InfoSys {
 	}
 
 	// disables everything in the system
-	private void DisableSystem() {
+	public void DisableSystem() {
 		btnPower.setEnabled(false);
 		lblInfoSys.setBackground(Color.black);
 		lblMute.setVisible(false);
@@ -82,7 +82,7 @@ public class InfoSys {
 	}
 
 	// enables everything in the system
-	private void EnableSystem() {
+	public void EnableSystem() {
 		btnPower.setEnabled(true);
 		lblMute.setVisible(true);
 		btnIgnite.setText("Ignite: OFF");
@@ -96,7 +96,7 @@ public class InfoSys {
 	 * configurations are enabled
 	 * System turned off
 	 */
-	private void SystemOff() {
+	public void SystemOff() {
 		igniteStatus = Ign.OFF;
 		DisableSystem();
 		textTLong.setEnabled(false);
@@ -115,7 +115,7 @@ public class InfoSys {
 	}
 
 	// disables configuration and Turns System ON
-	private void SystemOn() {
+	public void SystemOn() {
 		textTLong.setEnabled(true);
 		textTShort.setEnabled(true);
 		textDay_DC.setEnabled(true);
@@ -132,7 +132,7 @@ public class InfoSys {
 	}
 
 	// if system is on, It toggles the ignite depending on its previous status
-	private void ToggleIgniteOnOff() {
+	public void ToggleIgniteOnOff() {
 		if (systemStatus == Sys.OFF) {
 			if (igniteStatus == Ign.ON) {
 				igniteStatus = Ign.ON;
@@ -145,7 +145,7 @@ public class InfoSys {
 	}
 
 	// It toggles the system depending on its previous status and if the system is off it takes in configuration parameters
-	private void ToggleSystemOnOff() {
+	public void ToggleSystemOnOff() {
 		if (systemStatus == Sys.ON) {
 			systemStatus = Sys.ON;
 			SystemOff();
@@ -201,7 +201,7 @@ public class InfoSys {
 
 	// if radio button day is selected, deselects radio button night and sets the
 	// mode to Day mode
-	private void DayMode() {
+	public void DayMode() {
 		if (rdbtnDay.isSelected()) {
 			rdbtnNight.setSelected(false);
 			backLightController.setBackLightStatus(BackLightMode.DAY);
@@ -210,7 +210,7 @@ public class InfoSys {
 
 	// if radio button night is selected, deselects radio button day and sets the
 	// mode to Night mode
-	private void NightMode() {
+	public void NightMode() {
 		if (rdbtnNight.isSelected()) {
 			rdbtnDay.setSelected(true);
 			backLightController.setBackLightStatus(BackLightMode.DAY);
@@ -218,7 +218,7 @@ public class InfoSys {
 	}
 
 	// everything is turned Off and all the values of DTC set to NO_ISSUE
-	private void InitSystem() {
+	public void InitSystem() {
 		igniteStatus = Ign.OFF;
 		systemStatus = Sys.ON;
 		dtc = new DTC();
