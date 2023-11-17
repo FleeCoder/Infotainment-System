@@ -21,31 +21,31 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class InfoSys {
-	private JFrame frmInfotainmentSystem;
-	private InfoButton infoButton;
-	private Thread updateUI;
-	private Ign igniteStatus;
-	private Sys systemStatus;
-	private JLabel lblMute;
-	private JLabel lblInfoSys;
-	private JButton btnPower;
-	private Image imgPower;
-	private Image imgUnMute;
-	private Image imgMute;
-	private Image imgFlash;
-	private JTextArea textTShort;
-	private JTextArea textTLong;
-	private JTextArea textDay_DC;
-	private JTextArea textNight_DC;
-	private JButton btnSystem;
-	private JButton btnIgnite;
-	private JRadioButton rdbtnDay;
-	private JRadioButton rdbtnNight;
-	private BackLightController backLightController;
-	private DTC dtc;
-	private JTextArea textAreaDTC;
-	private JLabel lblDTCFlasher;
-	private JTextField txtButtonTimer;
+	public JFrame frmInfotainmentSystem;
+	public InfoButton infoButton;
+	public Thread updateUI;
+	public Ign igniteStatus;
+	public Sys systemStatus;
+	public JLabel lblMute;
+	public JLabel lblInfoSys;
+	public JButton btnPower;
+	public Image imgPower;
+	public Image imgUnMute;
+	public Image imgMute;
+	public Image imgFlash;
+	public JTextArea textTShort;
+	public JTextArea textTLong;
+	public JTextArea textDay_DC;
+	public JTextArea textNight_DC;
+	public JButton btnSystem;
+	public JButton btnIgnite;
+	public JRadioButton rdbtnDay;
+	public JRadioButton rdbtnNight;
+	public BackLightController backLightController;
+	public DTC dtc;
+	public JTextArea textAreaDTC;
+	public JLabel lblDTCFlasher;
+	public JTextField txtButtonTimer;
 
 	/**
 	 * Launch the application.
