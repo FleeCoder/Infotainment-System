@@ -126,7 +126,7 @@ public class InfoSys {
 	}
 
 	// reseting Radio button by selecting only Day
-	private void resetRadioButtons() {
+	public void resetRadioButtons() {
 		rdbtnDay.setSelected(true);
 		rdbtnNight.setSelected(true);
 	}
