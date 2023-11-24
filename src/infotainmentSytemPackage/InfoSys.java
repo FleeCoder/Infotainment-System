@@ -153,42 +153,57 @@ public class InfoSys {
 		} else {
 			systemStatus = Sys.OFF;
 			SystemOn();
-			if (!textTShort.getText().isEmpty()) {
+			if (!textTShort.getText().isEmpty() && !textTLong.getText().isEmpty()) {
 				try {
-					if (Long.parseLong(textTLong.getText()) > Long.parseLong(textTShort.getText()))
+					if (Long.parseLong(textTLong.getText()) > Long.parseLong(textTShort.getText())) {
+						infoButton.setTSHORT(Long.parseLong(textTShort.getText()));
+						infoButton.setTLONG(Long.parseLong(textTLong.getText()));
+					}
+				} catch (Exception ex) {
+					System.out.println(ex.getMessage());
+				}
+			} else if (!textTShort.getText().isEmpty()) {
+				try {
+					if (infoButton.getTLONG() > Long.parseLong(textTShort.getText()))
 						infoButton.setTSHORT(Long.parseLong(textTShort.getText()));
 				} catch (Exception ex) {
 					System.out.println(ex.getMessage());
 				}
-			}
-			if (!textTLong.getText().isEmpty()) {
+			} else {
 				try {
-					if (Long.parseLong(textTLong.getText()) > Long.parseLong(textTShort.getText()))
+					if (Long.parseLong(textTLong.getText()) > infoButton.getTSHORT())
 						infoButton.setTLONG(Long.parseLong(textTLong.getText()));
 				} catch (Exception ex) {
 					System.out.println(ex.getMessage());
 				}
 			}
-			if (!textDay_DC.getText().isEmpty()) {
+			if (!textDay_DC.getText().isEmpty() && !textNight_DC.getText().isEmpty()) {
 				try {
 					if (Float.parseFloat(textDay_DC.getText()) < Float.parseFloat(textNight_DC.getText())
 							&& Float.parseFloat(textDay_DC.getText()) > 0
 							&& Float.parseFloat(textDay_DC.getText()) < 100
 							&& Float.parseFloat(textNight_DC.getText()) > 0
-							&& Float.parseFloat(textNight_DC.getText()) < 100)
-
+							&& Float.parseFloat(textNight_DC.getText()) < 100) {
+						backLightController.setNight_DC(Float.parseFloat(textNight_DC.getText()) / 100 * 255);
+						backLightController.setDay_DC(Float.parseFloat(textDay_DC.getText()) / 100 * 255);
+					}
+				} catch (Exception ex) {
+					System.out.println(ex.getMessage());
+				}
+			} else if (!textDay_DC.getText().isEmpty()) {
+				try {
+					if (Float.parseFloat(textDay_DC.getText()) / 100 * 255 < backLightController.getNight_DC()
+							&& Float.parseFloat(textDay_DC.getText()) > 0
+							&& Float.parseFloat(textDay_DC.getText()) < 100)
 						backLightController.setDay_DC(Float.parseFloat(textDay_DC.getText()) / 100 * 255);
 				} catch (Exception ex) {
 					System.out.println(ex.getMessage());
 				}
-			}
-			if (!textNight_DC.getText().isEmpty()) {
+			} else {
 				try {
-					if (Float.parseFloat(textDay_DC.getText()) < Float.parseFloat(textNight_DC.getText())
+					if (backLightController.getDay_DC() < Float.parseFloat(textNight_DC.getText()) / 100 * 255
 							&& Float.parseFloat(textNight_DC.getText()) > 0
-							&& Float.parseFloat(textNight_DC.getText()) < 100
-							&& Float.parseFloat(textDay_DC.getText()) > 0
-							&& Float.parseFloat(textDay_DC.getText()) < 100)
+							&& Float.parseFloat(textNight_DC.getText()) < 100)
 						backLightController.setNight_DC(Float.parseFloat(textNight_DC.getText()) / 100 * 255);
 				} catch (Exception ex) {
 					System.out.println(ex.getMessage());
