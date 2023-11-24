@@ -144,7 +144,8 @@ public class InfoSys {
 		}
 	}
 
-	// It toggles the system depending on its previous status and if the system is off it takes in configuration parameters
+	// It toggles the system depending on its previous status and if the system is
+	// off it takes in configuration parameters
 	public void ToggleSystemOnOff() {
 		if (systemStatus == Sys.ON) {
 			systemStatus = Sys.ON;
@@ -153,47 +154,44 @@ public class InfoSys {
 			systemStatus = Sys.OFF;
 			SystemOn();
 			if (!textTShort.getText().isEmpty()) {
-				if (Long.parseLong(textTLong.getText()) > Long.parseLong(textTShort.getText())) {
-					try {
+				try {
+					if (Long.parseLong(textTLong.getText()) > Long.parseLong(textTShort.getText()))
 						infoButton.setTSHORT(Long.parseLong(textTShort.getText()));
-					} catch (Exception ex) {
-						System.out.println(ex.getMessage());
-					}
+				} catch (Exception ex) {
+					System.out.println(ex.getMessage());
 				}
 			}
 			if (!textTLong.getText().isEmpty()) {
-				if (Long.parseLong(textTLong.getText()) > Long.parseLong(textTShort.getText())) {
-					try {
+				try {
+					if (Long.parseLong(textTLong.getText()) > Long.parseLong(textTShort.getText()))
 						infoButton.setTLONG(Long.parseLong(textTLong.getText()));
-					} catch (Exception ex) {
-						System.out.println(ex.getMessage());
-					}
+				} catch (Exception ex) {
+					System.out.println(ex.getMessage());
 				}
 			}
 			if (!textDay_DC.getText().isEmpty()) {
-				if (Float.parseFloat(textDay_DC.getText()) < Float.parseFloat(textNight_DC.getText())
-						&& Float.parseFloat(textDay_DC.getText()) > 0
-						&& Float.parseFloat(textDay_DC.getText()) < 100
-						&& Float.parseFloat(textNight_DC.getText()) > 0
-						&& Float.parseFloat(textNight_DC.getText()) < 100) {
-					try {
+				try {
+					if (Float.parseFloat(textDay_DC.getText()) < Float.parseFloat(textNight_DC.getText())
+							&& Float.parseFloat(textDay_DC.getText()) > 0
+							&& Float.parseFloat(textDay_DC.getText()) < 100
+							&& Float.parseFloat(textNight_DC.getText()) > 0
+							&& Float.parseFloat(textNight_DC.getText()) < 100)
+
 						backLightController.setDay_DC(Float.parseFloat(textDay_DC.getText()) / 100 * 255);
-					} catch (Exception ex) {
-						System.out.println(ex.getMessage());
-					}
+				} catch (Exception ex) {
+					System.out.println(ex.getMessage());
 				}
 			}
 			if (!textNight_DC.getText().isEmpty()) {
-				if (Float.parseFloat(textDay_DC.getText()) < Float.parseFloat(textNight_DC.getText())
-						&& Float.parseFloat(textNight_DC.getText()) > 0
-						&& Float.parseFloat(textNight_DC.getText()) < 100
-						&& Float.parseFloat(textDay_DC.getText()) > 0
-						&& Float.parseFloat(textDay_DC.getText()) < 100) {
-					try {
+				try {
+					if (Float.parseFloat(textDay_DC.getText()) < Float.parseFloat(textNight_DC.getText())
+							&& Float.parseFloat(textNight_DC.getText()) > 0
+							&& Float.parseFloat(textNight_DC.getText()) < 100
+							&& Float.parseFloat(textDay_DC.getText()) > 0
+							&& Float.parseFloat(textDay_DC.getText()) < 100)
 						backLightController.setNight_DC(Float.parseFloat(textNight_DC.getText()) / 100 * 255);
-					} catch (Exception ex) {
-						System.out.println(ex.getMessage());
-					}
+				} catch (Exception ex) {
+					System.out.println(ex.getMessage());
 				}
 			}
 		}
