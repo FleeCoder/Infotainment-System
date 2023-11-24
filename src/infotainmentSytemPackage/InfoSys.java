@@ -169,7 +169,7 @@ public class InfoSys {
 				} catch (Exception ex) {
 					System.out.println(ex.getMessage());
 				}
-			} else {
+			} else if (!textTLong.getText().isEmpty()){
 				try {
 					if (Long.parseLong(textTLong.getText()) > infoButton.getTSHORT())
 						infoButton.setTLONG(Long.parseLong(textTLong.getText()));
@@ -199,7 +199,7 @@ public class InfoSys {
 				} catch (Exception ex) {
 					System.out.println(ex.getMessage());
 				}
-			} else {
+			} else if (!textNight_DC.getText().isEmpty()){
 				try {
 					if (backLightController.getDay_DC() < Float.parseFloat(textNight_DC.getText()) / 100 * 255
 							&& Float.parseFloat(textNight_DC.getText()) > 0
