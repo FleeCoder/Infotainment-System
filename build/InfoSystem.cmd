@@ -1,0 +1,1 @@
+E:\jubula_8.8.1.010\jre\bin\javaw -jar %cd%/InfoSystem.jar
